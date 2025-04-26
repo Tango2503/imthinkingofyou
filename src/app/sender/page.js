@@ -1,12 +1,77 @@
+import { useState } from 'react';
 import Link from 'next/link';
 
 export default function Sender() {
-  return (
-    <main className="flex flex-col items-center justify-center min-h-screen p-8 text-center">
-      <h1 className="text-3xl font-bold mb-4">Compose Your Thought 🌸</h1>
-      <p className="text-md mb-8">Write a small message you&apos;d like to share with someone special.</p>
+  const [vibe, setVibe] = useState('Soft');
+  const [name, setName] = useState('');
 
-      <Link href="/receiver" className="text-blue-500 underline">Share It</Link>
+  // Map vibes to preview messages
+  const vibeMessages = {
+    Soft: "🌸 Someone wanted you to know: You're quietly loved today.",
+    Passionate: "🔥 Someone wanted you to feel: You inspire something powerful.",
+    Reflective: "☁️ Someone wanted you to ponder: You matter in more ways than you realize.",
+    Calm: "🌊 Someone wanted you to breathe easy: You're doing just fine."
+  };
+
+  return (
+    <main className="flex flex-col items-center justify-center min-h-screen p-8 text-center space-y-6">
+      
+      {/* Soft Header */}
+      <p className="text-sm opacity-70">
+        🌸 imthinkingofyou.io
+      </p>
+
+      {/* Page Heading */}
+      <h1 className="text-2xl font-semibold">
+        Send Your Thought
+      </h1>
+
+      {/* Thought Preview */}
+      <div className="border p-4 rounded-lg bg-gray-100 w-full max-w-md">
+        <p className="text-lg">{vibeMessages[vibe]}</p>
+      </div>
+
+      {/* Vibe Selector */}
+      <div className="flex flex-col items-start w-full max-w-md">
+        <label className="text-sm mb-1">
+          Prefer a different feeling? You can change it (optional). 🌸
+        </label>
+        <select
+          className="w-full p-2 border rounded-md"
+          value={vibe}
+          onChange={(e) => setVibe(e.target.value)}
+        >
+          <option value="Soft">🌸 Soft</option>
+          <option value="Passionate">🔥 Passionate</option>
+          <option value="Reflective">☁️ Reflective</option>
+          <option value="Calm">🌊 Calm</option>
+        </select>
+      </div>
+
+      {/* Name Field */}
+      <div className="flex flex-col items-start w-full max-w-md">
+        <label className="text-sm mb-1 mt-4">
+          Your name (optional):
+        </label>
+        <input
+          className="w-full p-2 border rounded-md"
+          type="text"
+          placeholder="Your name here..."
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </div>
+
+      {/* Send Button */}
+      <button className="bg-pink-200 hover:bg-pink-300 text-lg font-medium py-3 px-8 rounded-full transition-all mt-6">
+        SEND A THOUGHT
+      </button>
+
+      {/* Soft Footer */}
+      <div className="mt-16 text-xs opacity-40">
+        Your care will be delivered quietly. 🌸
+      </div>
+
     </main>
   );
 }

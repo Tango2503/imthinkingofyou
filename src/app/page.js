@@ -11,7 +11,7 @@ export default function Home() {
 
       {/* Gentle Welcome Message */}
       <h1 className="text-2xl font-semibold mb-6">
-        Sometimes you just want someone to know you&apos;re thinking of them — no pressure, no reply needed.
+        Sometimes you just want someone to know you&apos;re thinking of them. no pressure, no reply needed.
       </h1>
 
       {/* Big Centered Button */}
