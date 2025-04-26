@@ -4,7 +4,7 @@
 
 ---
 
-## ✏️ Prouct Principles and Documentation
+## ✏️ Product Principles and Documentation
 
 [https://www.notion.so/imthinkingofyou-1e13aecd2f4080119924f1e6248d806d]
 
