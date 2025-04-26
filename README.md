@@ -4,6 +4,10 @@
 
 ---
 
+## ✏️ Prouct Principles and Documentation
+
+[https://www.notion.so/imthinkingofyou-1e13aecd2f4080119924f1e6248d806d]
+
 ## 🚀 Live Demo
 
 👉 [https://imthinkingofyou.vercel.app/](https://imthinkingofyou.vercel.app/)
