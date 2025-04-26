@@ -1,11 +1,16 @@
+"use client";
+
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 export default function Sender() {
   const [vibe, setVibe] = useState('Soft');
   const [name, setName] = useState('');
+  const [isSending, setIsSending] = useState(false);
 
-  // Map vibes to preview messages
+  const router = useRouter();
+
   const vibeMessages = {
     Soft: "🌸 Someone wanted you to know: You're quietly loved today.",
     Passionate: "🔥 Someone wanted you to feel: You inspire something powerful.",
@@ -13,59 +18,80 @@ export default function Sender() {
     Calm: "🌊 Someone wanted you to breathe easy: You're doing just fine."
   };
 
+  const handleSendThought = () => {
+    setIsSending(true);
+    setTimeout(() => {
+      router.push('/share');
+    }, 500); // 0.5 seconds delay
+  };
+
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-8 text-center space-y-6">
-      
+
       {/* Soft Header */}
       <p className="text-sm opacity-70">
         🌸 imthinkingofyou.io
       </p>
 
-      {/* Page Heading */}
-      <h1 className="text-2xl font-semibold">
-        Send Your Thought
-      </h1>
+      {isSending ? (
+        // SENDING STATE VIEW
+        <div className="flex flex-col items-center justify-center space-y-4 mt-12">
+          <div className="text-3xl animate-pulse">...</div> {/* pulsing dots */}
+          <p className="text-lg">Planting your Thought... 🌱</p>
+        </div>
+      ) : (
+        // NORMAL FORM VIEW
+        <>
+          {/* Page Heading */}
+          <h1 className="text-2xl font-semibold">
+            Send Your Thought
+          </h1>
 
-      {/* Thought Preview */}
-      <div className="border p-4 rounded-lg bg-gray-100 w-full max-w-md">
-        <p className="text-lg">{vibeMessages[vibe]}</p>
-      </div>
+          {/* Thought Preview */}
+          <div className="border p-4 rounded-lg bg-gray-100 w-full max-w-md">
+            <p className="text-lg">{vibeMessages[vibe]}</p>
+          </div>
 
-      {/* Vibe Selector */}
-      <div className="flex flex-col items-start w-full max-w-md">
-        <label className="text-sm mb-1">
-          Prefer a different feeling? You can change it (optional). 🌸
-        </label>
-        <select
-          className="w-full p-2 border rounded-md"
-          value={vibe}
-          onChange={(e) => setVibe(e.target.value)}
-        >
-          <option value="Soft">🌸 Soft</option>
-          <option value="Passionate">🔥 Passionate</option>
-          <option value="Reflective">☁️ Reflective</option>
-          <option value="Calm">🌊 Calm</option>
-        </select>
-      </div>
+          {/* Vibe Selector */}
+          <div className="flex flex-col items-start w-full max-w-md">
+            <label className="text-sm mb-1">
+              Prefer a different feeling? You can change it (optional). 🌸
+            </label>
+            <select
+              className="w-full p-2 border rounded-md"
+              value={vibe}
+              onChange={(e) => setVibe(e.target.value)}
+            >
+              <option value="Soft">🌸 Soft</option>
+              <option value="Passionate">🔥 Passionate</option>
+              <option value="Reflective">☁️ Reflective</option>
+              <option value="Calm">🌊 Calm</option>
+            </select>
+          </div>
 
-      {/* Name Field */}
-      <div className="flex flex-col items-start w-full max-w-md">
-        <label className="text-sm mb-1 mt-4">
-          Your name (optional):
-        </label>
-        <input
-          className="w-full p-2 border rounded-md"
-          type="text"
-          placeholder="Your name here..."
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
+          {/* Name Field */}
+          <div className="flex flex-col items-start w-full max-w-md">
+            <label className="text-sm mb-1 mt-4">
+              Your name (optional):
+            </label>
+            <input
+              className="w-full p-2 border rounded-md"
+              type="text"
+              placeholder="Your name here..."
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
 
-      {/* Send Button */}
-      <button className="bg-pink-200 hover:bg-pink-300 text-lg font-medium py-3 px-8 rounded-full transition-all mt-6">
-        SEND A THOUGHT
-      </button>
+          {/* Send Button */}
+          <button
+            onClick={handleSendThought}
+            className="bg-pink-200 hover:bg-pink-300 text-lg font-medium py-3 px-8 rounded-full transition-all mt-6"
+          >
+            SEND A THOUGHT
+          </button>
+        </>
+      )}
 
       {/* Soft Footer */}
       <div className="mt-16 text-xs opacity-40">
