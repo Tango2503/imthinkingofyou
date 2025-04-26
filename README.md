@@ -1,37 +1,57 @@
-imthinkingofyou.io 🌱
-A gentle space to send small thoughts to people you care about.
+# imthinkingofyou.io 🌱
 
-🚀 Live Demo
-👉 https://imthinkingofyou.vercel.app/
+**A gentle space to send small thoughts to people you care about.**
 
-🛠️ Built With
-Next.js 15 (React framework)
+---
 
-TailwindCSS (for quick styling)
+## 🚀 Live Demo
 
-Vercel (for deployment)
+👉 [https://imthinkingofyou.vercel.app/](https://imthinkingofyou.vercel.app/)
 
-GitHub Codespaces (for cloud development)
+---
 
-🎯 Current Features
-Home page to start the journey
+## 🛠️ Built With
 
-Sender page to compose a thought
+- [Next.js 15](https://nextjs.org/) — React framework for server-side rendering and frontend logic
+- [TailwindCSS](https://tailwindcss.com/) — Utility-first CSS for rapid UI building
+- [Vercel](https://vercel.com/) — Hosting and continuous deployment
+- [GitHub Codespaces](https://github.com/features/codespaces) — Cloud development environment
 
-Receiver page to view received thoughts
+---
 
-Smooth navigation between pages (no page reloads)
+## 🎯 Current Features
 
-🌱 Next Steps (Future Enhancements)
-Add a real text input on Sender page
+- Home page inviting users to start the journey
+- Sender page to compose a thought
+- Receiver page to view received thoughts
+- Smooth navigation between pages (no page reloads)
+- Light emotional copywriting throughout the flow
 
-Share generated thought links dynamically
+---
 
-Style the app with soft color palettes
+## 🌱 Next Steps (Future Enhancements)
 
-(Optional) Set up a lightweight backend for storing thoughts
+- Add a real text input on Sender page
+- Generate and share dynamic thought links
+- Style the app with a soft, welcoming color palette
+- (Optional) Set up lightweight backend for storing messages
 
-📚 Project Status
-✅ MVP frontend structure complete
-✅ Deployed live
-🛠️ Backend and dynamic features under construction
+---
+
+## 📚 Project Status
+
+✅ MVP frontend structure complete  
+✅ Deployed live on Vercel  
+🛠️ Backend features and dynamic flow under active development
+
+---
+
+## ✨ About
+
+**imthinkingofyou.io** is a minimalist project aimed at making emotional outreach easier —  
+a lightweight, human-centered app for sending small, meaningful thoughts without noise.
+
+Built from scratch as a personal learning and building project.  
+More features coming soon!
+
+---
