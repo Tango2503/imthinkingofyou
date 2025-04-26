@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+imthinkingofyou.io 🌱
+A gentle space to send small thoughts to people you care about.
 
-## Getting Started
+🚀 Live Demo
+👉 https://imthinkingofyou.vercel.app/
 
-First, run the development server:
+🛠️ Built With
+Next.js 15 (React framework)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+TailwindCSS (for quick styling)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Vercel (for deployment)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+GitHub Codespaces (for cloud development)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🎯 Current Features
+Home page to start the journey
 
-## Learn More
+Sender page to compose a thought
 
-To learn more about Next.js, take a look at the following resources:
+Receiver page to view received thoughts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Smooth navigation between pages (no page reloads)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🌱 Next Steps (Future Enhancements)
+Add a real text input on Sender page
 
-## Deploy on Vercel
+Share generated thought links dynamically
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Style the app with soft color palettes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+(Optional) Set up a lightweight backend for storing thoughts
+
+📚 Project Status
+✅ MVP frontend structure complete
+✅ Deployed live
+🛠️ Backend and dynamic features under construction
