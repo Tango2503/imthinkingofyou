@@ -42,8 +42,8 @@ export default function SharePage() {
   const handleShareLink = async () => {
     try {
       await navigator.share({
-        title: 'A Thought for You',
-        text: 'Someone is thinking of you.',
+        title: 'someone is thinking of you 🌸',
+        text: 'open this to receive a small thought — no reply needed, no pressure 🌿',
         url: shareUrl,
       });
 
