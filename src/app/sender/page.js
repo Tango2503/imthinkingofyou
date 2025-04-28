@@ -12,10 +12,10 @@ export default function Sender() {
   const router = useRouter();
 
   const vibeMessages = {
-    Soft: "🌸 Someone wanted you to know: You're quietly loved today.",
-    Passionate: "🔥 Someone wanted you to feel: You inspire something powerful.",
-    Reflective: "☁️ Someone wanted you to ponder: You matter in more ways than you realize.",
-    Calm: "🌊 Someone wanted you to breathe easy: You're doing just fine."
+    Soft: "🌸 someone wanted you to know. you're quietly loved today.",
+    Passionate: "🔥 someone wanted you to feel. you inspire something powerful.",
+    Reflective: "☁️ someone wanted you to ponder. you matter in more ways than you realise.",
+    Calm: "🌊 someone wanted you to breathe easy. you're doing just fine."
   };
 
   const handleSendThought = () => {
@@ -37,7 +37,7 @@ export default function Sender() {
         // SENDING STATE VIEW
         <div className="flex flex-col items-center justify-center space-y-4 mt-12">
           <div className="text-3xl animate-pulse">...</div> {/* pulsing dots */}
-          <p className="text-lg">Planting your Thought... 🌱</p>
+          <p className="text-lg">planting your thought 🌱</p>
         </div>
       ) : (
         // NORMAL FORM VIEW
@@ -62,10 +62,10 @@ export default function Sender() {
               value={vibe}
               onChange={(e) => setVibe(e.target.value)}
             >
-              <option value="Soft">🌸 Soft</option>
-              <option value="Passionate">🔥 Passionate</option>
-              <option value="Reflective">☁️ Reflective</option>
-              <option value="Calm">🌊 Calm</option>
+              <option value="soft">🌸 soft</option>
+              <option value="passionate">🔥 passionate</option>
+              <option value="reflective">☁️ reflective</option>
+              <option value="calm">🌊 calm</option>
             </select>
           </div>
 
