@@ -22,7 +22,7 @@ export default function Sender() {
     setIsSending(true);
     setTimeout(() => {
       router.push('/share');
-    }, 500); // 0.5 seconds delay
+    }, 1000); // 1 seconds delay
   };
 
   return (
@@ -43,8 +43,8 @@ export default function Sender() {
         // NORMAL FORM VIEW
         <>
           {/* Page Heading */}
-          <h1 className="text-2xl font-semibold">
-            Send Your Thought
+          <h1 className="text-xl font-semibold opacity-80 mb-6">
+            convey your feelings
           </h1>
 
           {/* Thought Preview */}
@@ -86,16 +86,16 @@ export default function Sender() {
           {/* Send Button */}
           <button
             onClick={handleSendThought}
-            className="bg-pink-200 hover:bg-pink-300 text-lg font-medium py-3 px-8 rounded-full transition-all mt-6"
+            className="bg-pink-200 hover:bg-pink-300 text-lg font-medium font-style: italic py-3 px-8 rounded-full transition-all mt-6"
           >
-            SEND A THOUGHT
+            send your thought
           </button>
         </>
       )}
 
       {/* Soft Footer */}
       <div className="mt-16 text-xs opacity-40">
-        Your care will be delivered quietly. 🌸
+        your care will be delivered quietly 🌸
       </div>
 
     </main>

@@ -10,21 +10,24 @@ export default function Home() {
       </p>
 
       {/* Gentle Welcome Message */}
-      <h1 className="text-2xl font-semibold mb-6">
-        Sometimes you just want someone to know you&apos;re thinking of them. no pressure, no reply needed.
+      <h1 className="text-xl font-semibold opacity-80 mb-6">
+        sometimes you just want someone to know you&apos;re thinking of them 
+      </h1>
+      <h1 className = "text-xl font-semibold opacity-80 mb-6">
+        no pressure, no reply needed
       </h1>
 
       {/* Big Centered Button */}
       <Link href="/sender" passHref>
-        <button className="bg-pink-200 hover:bg-pink-300 text-lg font-medium py-3 px-8 rounded-full mb-4 transition-all">
-          SEND A THOUGHT
+        <button className="bg-pink-200 hover:bg-pink-300 text-lg font-medium font-style: italic py-3 px-8 rounded-full mb-4 transition-all">
+          send a thought
         </button>
       </Link>
 
       {/* Tiny Footer Whisper */}
-      <div className="mt-16 text-xs opacity-40">
-        A quiet space for small kindnesses.
-      </div>
+      <footer className="mt-16 text-xs opacity-40">
+          a quiet space for small kindnesses
+      </footer>
 
     </main>
   );
