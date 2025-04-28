@@ -75,14 +75,14 @@ export default function SharePage() {
         // Fade-Out View (Planting Complete)
         <div className="flex flex-col items-center justify-center space-y-4 mt-12">
           <div className="text-3xl animate-pulse">...</div> {/* pulsing dots */}
-          <p className="text-lg">Planting complete... 🌱</p>
+          <p className="text-lg"> planting complete  🌱</p>
         </div>
       ) : (
         // Normal Link and Button View
         <>
           {/* Page Heading */}
-          <h1 className="text-2xl font-semibold">
-            Your Thought is Ready! 🌱
+          <h1 className="text-xl font-semibold opacity-80 mb-6">
+            your thought is ready 🌱
           </h1>
 
           {/* Link Display */}
@@ -98,28 +98,32 @@ export default function SharePage() {
               onClick={handleShareLink}
               className="bg-pink-200 hover:bg-pink-300 text-lg font-medium py-3 px-8 rounded-full transition-all"
             >
-              SHARE
+              share link
             </button>
           ) : (
             <button
               onClick={handleCopyLink}
               className="bg-pink-200 hover:bg-pink-300 text-lg font-medium py-3 px-8 rounded-full transition-all"
             >
-              {copied ? "COPIED!" : "COPY LINK"}
+              {copied ? "copied!" : "copy link"}
             </button>
           )}
 
           {/* Coaching Text */}
           <p className="text-sm opacity-70 max-w-md">
-            Send this quietly — through a message, a text, or an email — however feels right.  
-            No need for a reply. Your care has already been felt. 🌸
+            send this gently — a message, a text, or an email — however feels right
+            <br />
+                no need for a reply
+            <br />
+                your care has already been felt 🌸
           </p>
+
         </>
       )}
 
       {/* Tiny Footer */}
       <div className="mt-16 text-xs opacity-40">
-        A quiet space for small kindnesses.
+        a quiet space for small kindnesses
       </div>
 
     </main>

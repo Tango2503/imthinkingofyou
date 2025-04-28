@@ -55,7 +55,7 @@ export default function Sender() {
           {/* Vibe Selector */}
           <div className="flex flex-col items-start w-full max-w-md">
             <label className="text-sm mb-1">
-              Prefer a different feeling? You can change it (optional). 🌸
+              prefer a different feeling? you can change it (optional) 🌸
             </label>
             <select
               className="w-full p-2 border rounded-md"
@@ -72,7 +72,7 @@ export default function Sender() {
           {/* Name Field */}
           <div className="flex flex-col items-start w-full max-w-md">
             <label className="text-sm mb-1 mt-4">
-              Your name (optional):
+              your name (optional):
             </label>
             <input
               className="w-full p-2 border rounded-md"
