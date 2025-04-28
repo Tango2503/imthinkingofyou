@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Receiver() {
   const thoughtMessage = "🌸 Someone wanted you to know: You are quietly loved today.";
-  const senderName = "— from Tima"; // Simulate optional sender name for now
+  const senderName = "— from Tina"; // Simulate optional sender name for now
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-8 text-center space-y-6">
