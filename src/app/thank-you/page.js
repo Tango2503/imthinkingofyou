@@ -16,7 +16,7 @@ export default function ThankYouPage() {
         your thought was planted 🌱
       </h1>
 
-      <p className="text-base text-orange-600 dark: text-pink-300 font-semibold opacity-50 mb-6">
+      <p className="text-base text-orange-600 dark:text-pink-300 font-semibold opacity-50 mb-6">
         thank you for sending a little care into the world
       </p>
 

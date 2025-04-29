@@ -10,7 +10,7 @@ export default function Home() {
       </p>
 
       {/* Gentle Welcome Message */}
-      <h1 className="text-xl text-orange-600 dark: text-pink-300 font-semibold opacity-50 mb-6">
+      <h1 className="text-xl text-orange-600 dark:text-pink-300 font-semibold opacity-50 mb-6">
         sometimes you just want someone to know you&apos;re thinking of them 
       </h1>
       {/* <h1 className = "text-xl font-semibold opacity-80 mb-6">

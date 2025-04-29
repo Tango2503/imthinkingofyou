@@ -67,7 +67,7 @@ export default function Sender() {
         // NORMAL FORM VIEW
         <>
           {/* Page Heading */}
-          <h1 className="text-xl text-orange-600 dark: text-pink-300 font-semibold opacity-50 mb-6">
+          <h1 className="text-xl text-orange-600 dark:text-pink-300 font-semibold opacity-50 mb-6">
           let them know they crossed your mind
           </h1>
 
