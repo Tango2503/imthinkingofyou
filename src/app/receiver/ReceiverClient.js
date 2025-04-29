@@ -40,23 +40,24 @@ export default function Receiver() {
 
   if (!thought) {
     return (
-      <main className="flex flex-col items-center justify-center min-h-screen p-8 text-center">
-        <p className="text-lg opacity-60">gently retrieving your thought... 🌿</p>
+      <main className="bg-orange-100 flex flex-col items-center justify-center min-h-screen p-8 text-center">
+        <div className="text-3xl text-orange-500 bg-orange-100 rounded px-2 animate-soft-pulse-slow">...</div> {/* pulsing dots */}
+          <p className="text-gray-700 text-lg opacity-80">something just for you 🌱</p>
       </main>
     );
   }
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen p-8 text-center space-y-6">
+    <main className="bg-orange-100 flex flex-col items-center justify-center min-h-screen p-8 text-center space-y-6">
 
       {/* Soft Header */}
-      <p className="text-sm opacity-70">
-        🌸 imthinkingofyou.io
+      <p className="text-gray-700 text-sm opacity-70 mb-8 border-b-3 border-orange-300 pb-0.3">
+        imthinkingofyou.io
       </p>
 
       {/* Thought Box */}
-      <div className="border p-6 rounded-lg bg-gray-100 w-full max-w-md space-y-4">
-        <p className="text-lg leading-relaxed">
+      <div className="p-10 rounded-lg bg-orange-200 w-full max-w-md">
+        <p className="whitespace-pre-line text-gray-700 font-semibold opacity-80">
           {thought.message}
         </p>
         {thought.name && !thought.is_anonymous && (
@@ -67,13 +68,15 @@ export default function Receiver() {
       </div>
 
       {/* Soft Divider */}
-      <hr className="w-1/2 border-t border-gray-300 opacity-50" />
+      {/* <hr className="w-1/2 border-t border-gray-300 opacity-50" /> */}
 
       {/* Reassurance Message */}
-      <p className="text-sm opacity-70 max-w-md">
-        no need to reply 🌱
+      <p className="text-sm opacity-60 max-w-md mt-8">
+        no need to reply
         <br />
-        feel free to return whenever you like — your thought will always be here
+        feel free to return whenever you like
+        <br />
+        your thought will always be here 
       </p>
 
       {/* Tiny Soft Footer */}

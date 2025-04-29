@@ -27,8 +27,6 @@ export default function SharePage() {
     if (!shareUrl) return;
     navigator.clipboard.writeText(shareUrl);
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-
     // Start fade after 3s
     setTimeout(() => {
       setStartFade(true);
@@ -67,18 +65,18 @@ export default function SharePage() {
   };
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen p-8 text-center space-y-6">
+    <main className="bg-orange-100 flex flex-col items-center justify-center min-h-screen p-8 text-center space-y-6">
 
       {/* Soft Header */}
-      <p className="text-sm opacity-70">
-        🌸 imthinkingofyou.io
+      <p className="text-gray-700 text-sm opacity-70 mb-8 border-b-3 border-orange-300 pb-0.3">
+      imthinkingofyou.io
       </p>
 
       {startFade ? (
         // Fade-Out View (Planting Complete)
-        <div className="flex flex-col items-center justify-center space-y-4 mt-12">
-          <div className="text-3xl animate-pulse">...</div> {/* pulsing dots */}
-          <p className="text-lg"> planting complete  🌱</p>
+        <div className="bg-orange-100 flex flex-col items-center justify-center space-y-4 mt-12">
+          <div className="text-3xl text-orange-500 bg-orange-100 rounded px-2 animate-pulse">...</div> {/* pulsing dots */}
+          <p className="text-gray-700 text-lg opacity-80">planting complete 🌱</p>
         </div>
       ) : (
         // Normal Link and Button View
@@ -89,8 +87,8 @@ export default function SharePage() {
           </h1>
 
           {/* Link Display */}
-          <div className="border p-4 rounded-lg bg-gray-100 w-full max-w-md">
-            <p className="text-sm break-all">
+          <div className="p-4 rounded-lg bg-orange-200 w-full max-w-lg">
+            <p className="text-gray-700 font-semibold opacity-80 break-all">
               {shareUrl || "loading..."}
             </p>
           </div>
@@ -99,24 +97,30 @@ export default function SharePage() {
           {isMobile ? (
             <button
               onClick={handleShareLink}
-              className="bg-pink-200 hover:bg-pink-300 text-lg font-medium py-3 px-8 rounded-full transition-all"
+              className="bg-orange-200 hover:shadow-md hover:scale-[1.02] hover:bg-rose-300 text-gray-700 font-medium font-style: italic py-3 px-8 rounded-full mb-4 transition-transform"
             >
               share link
             </button>
           ) : (
             <button
               onClick={handleCopyLink}
-              className="bg-pink-200 hover:bg-pink-300 text-lg font-medium py-3 px-8 rounded-full transition-all"
-            >
+              className={`bg-orange-200 text-gray-700 font-medium font-style: italic py-3 px-8 rounded-full mb-4 transition-transform
+                ${copied ? 'bg-rose-300 shadow-md scale-[1.02]' : 'hover:shadow-md hover:scale-[1.02] hover:bg-rose-300'}`}>
+              
               {copied ? "copied!" : "copy link"}
+              
             </button>
-          )}
+          )
+          
+          
+          }
 
           {/* Coaching Text */}
-          <p className="text-sm opacity-70 max-w-md">
-            send this gently — a message, a text, or an email — however feels right
+          <p className="text-sm opacity-60 max-w-md mt-8 font-style: italic">
+            send this without obligations
             <br />
-            no need for a reply
+            however feels right
+            <br/>
             <br />
             your care has already been felt 🌸
           </p>

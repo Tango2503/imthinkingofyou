@@ -24,3 +24,42 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes softPulseSlow {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-soft-pulse-slow {
+  animation: softPulseSlow 3s ease-in-out infinite;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111827; /* Tailwind gray-900 */
+    color: #d1d5db; /* Tailwind gray-300 */
+  }
+
+  .bg-orange-100 {
+    background-color: #141518; /* dark background */
+  }
+
+  .bg-orange-200 {
+    background-color: #1f2937; /* Tailwind gray-800 */
+  }
+
+  .text-gray-700 {
+    color: #d1d5db; /* lighter text for dark mode */
+  }
+
+  .border-orange-300 {
+    border-color: #374151; /* dark mode border */
+  }
+  .bg-rose-300 {
+    border-color: #717f9a; /* dark mode border */
+  }
+}
+

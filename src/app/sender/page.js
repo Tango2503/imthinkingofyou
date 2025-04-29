@@ -18,7 +18,7 @@ export default function Sender() {
   const handleSendThought = async () => {
     setIsSending(true);
     if (!vibe) {
-      alert("Please select a vibe first! 🌸");
+      alert("Please select a vibe first! ");
       return;
     }
   
@@ -38,7 +38,7 @@ export default function Sender() {
       // Redirect to Share page with id
       setTimeout(() => {
         router.push(`/share?id=${id}`);
-      }, 1000); // 1 second
+      }, 2000); // 2 seconds
     }  catch (error) {
       console.error(error);
       alert('Something went wrong. Please try again.');
@@ -50,39 +50,39 @@ export default function Sender() {
   
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen p-8 text-center space-y-6">
+    <main className="bg-orange-100 flex flex-col items-center justify-center min-h-screen p-8 text-center space-y-6">
 
       {/* Soft Header */}
-      <p className="text-sm opacity-70">
-        🌸 imthinkingofyou.io
+      <p className="text-gray-700 text-sm opacity-70 mb-8 border-b-3 border-orange-300 pb-0.3">
+        imthinkingofyou.io
       </p>
 
       {isSending ? (
         // SENDING STATE VIEW
-        <div className="flex flex-col items-center justify-center space-y-4 mt-12">
-          <div className="text-3xl animate-pulse">...</div> {/* pulsing dots */}
-          <p className="text-lg">planting your thought 🌱</p>
+        <div className="bg-orange-100 flex flex-col items-center justify-center space-y-4 mt-12">
+          <div className="text-3xl text-orange-500 bg-orange-100 rounded px-2 animate-pulse">...</div> {/* pulsing dots */}
+          <p className="text-gray-700 text-lg opacity-80">planting your thought 🌱</p>
         </div>
       ) : (
         // NORMAL FORM VIEW
         <>
           {/* Page Heading */}
-          <h1 className="text-xl font-semibold opacity-80 mb-6">
-            convey your feelings
+          <h1 className="text-xl text-orange-600 dark: text-pink-300 font-semibold opacity-50 mb-6">
+          let them know they crossed your mind
           </h1>
 
           {/* Thought Preview */}
-          <div className="border p-4 rounded-lg bg-gray-100 w-full max-w-md">
-            <p className="text-lg">{vibeMessages[vibe]}</p>
+          <div className="p-10 rounded-lg bg-orange-200 w-full max-w-md">
+            <p className="whitespace-pre-line text-gray-700 font-semibold opacity-80">{vibeMessages[vibe]}</p>
           </div>
 
           {/* Vibe Selector */}
           <div className="flex flex-col items-start w-full max-w-md">
-            <label className="text-sm mb-1">
-              prefer a different feeling? you can change it (optional) 🌸
+            <label className="text-gray-700 text-sm mb-1">
+              prefer a different feeling? you can change it (optional)
             </label>
             <select
-              className="w-full p-2 border rounded-md"
+              className="text-gray-700 w-full p-2 border border-gray-400 rounded-md"
               value={vibe}
               onChange={(e) => setVibe(e.target.value)}
             >
@@ -90,16 +90,17 @@ export default function Sender() {
               <option value="Passionate">🔥 passionate</option>
               <option value="Reflective">☁️ reflective</option>
               <option value="Calm">🌊 calm</option>
+              <option value="Reassurance">🫂 reassurance</option>
             </select>
           </div>
 
           {/* Name Field */}
           <div className="flex flex-col items-start w-full max-w-md">
-            <label className="text-sm mb-1 mt-4">
+            <label className="text-gray-700 text-sm mb-1 mt-4">
               your name (optional):
             </label>
             <input
-              className="w-full p-2 border rounded-md"
+              className="text-gray-700 w-full p-2 border border-gray-400 rounded-md"
               type="text"
               placeholder="Your name here..."
               value={name}
@@ -110,7 +111,7 @@ export default function Sender() {
           {/* Send Button */}
           <button
             onClick={handleSendThought}
-            className="bg-pink-200 hover:bg-pink-300 text-lg font-medium font-style: italic py-3 px-8 rounded-full transition-all mt-6"
+            className="bg-orange-200 hover:shadow-md hover:scale-[1.02] hover:bg-rose-300 text-gray-700 font-medium font-style: italic py-3 px-8 rounded-full mb-4 transition-transform"
           >
             send your thought
           </button>
@@ -119,7 +120,7 @@ export default function Sender() {
 
       {/* Soft Footer */}
       <div className="mt-16 text-xs opacity-40">
-        your care will be delivered quietly 🌸
+      a quiet space for small kindnesses
       </div>
 
     </main>
