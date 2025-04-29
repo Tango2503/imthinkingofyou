@@ -1,61 +1,79 @@
-# imthinkingofyou.io 🌱
+# imthinkingofyou 🌸
 
-**A gentle space to send small thoughts to people you care about.**
-
----
-
-## ✏️ Product Principles and Documentation
-
-[Notion Doc](https://www.notion.so/imthinkingofyou-1e13aecd2f4080119924f1e6248d806d)
-
-## 🚀 Live Demo
-
-👉 [https://imthinkingofyou.vercel.app/](https://imthinkingofyou.vercel.app/)
+A quiet space for small kindnesses.  
+**imthinkingofyou** allows users to send soft, emotionally curated thoughts to others without expectation of reply, helping foster quiet care in a fast-moving world.
 
 ---
 
-## 🛠️ Built With
+## 🛠 Features
 
-- [Next.js 15](https://nextjs.org/) — React framework for server-side rendering and frontend logic
-- [TailwindCSS](https://tailwindcss.com/) — Utility-first CSS for rapid UI building
-- [Vercel](https://vercel.com/) — Hosting and continuous deployment
-- [GitHub Codespaces](https://github.com/features/codespaces) — Cloud development environment
-
----
-
-## 🎯 Current Features
-
-- Home page inviting users to start the journey
-- Sender page to compose a thought
-- Receiver page to view received thoughts
-- Smooth navigation between pages (no page reloads)
-- Light emotional copywriting throughout the flow
+- Thought generation based on four emotional "vibes": Soft, Calm, Reflective, Passionate
+- Optional name field to personalize or send anonymously
+- Shareable dynamic links powered by unique IDs
+- Receiver experience:
+  - Gentle reveal of thought
+  - Visit tracking (visit count, first time opened)
+  - Forwarding tracking (future-ready)
+- Soft, emotional UX pacing with delayed transitions and minimal pressure
+- Responsive across devices: mobile, tablet, desktop
+- Built-in receiver lifecycle analytics (visit count, first received at)
 
 ---
 
-## 🌱 Next Steps (Future Enhancements)
+## ⚙️ Tech Stack
 
-- Add a real text input on Sender page
-- Generate and share dynamic thought links
-- Style the app with a soft, welcoming color palette
-- (Optional) Set up lightweight backend for storing messages
-
----
-
-## 📚 Project Status
-
-✅ MVP frontend structure complete  
-✅ Deployed live on Vercel  
-🛠️ Backend features and dynamic flow under active development
+- **Frontend**: Next.js 15 (App Router, React 18)
+- **Backend**: 
+  - Vercel Serverless API routes
+  - Supabase (Postgres Database)
+- **Hosting**: Vercel (Global Edge Network)
+- **Styling**: TailwindCSS
+- **State Management**: React Hooks
+- **Analytics (internal)**: Soft event tracking via Supabase fields (`visit_count`, `first_received_at`, `forwarded`, `has_shared`)
 
 ---
 
-## ✨ About
+## 📦 Folder Structure
 
-**imthinkingofyou.io** is a minimalist project aimed at making emotional outreach easier —  
-a lightweight, human-centered app for sending small, meaningful thoughts without noise.
+/lib/ storage/ vibesToThoughts.js # Vibe → Thought mappings supabaseClient.js # Supabase client connection
 
-Built from scratch as a personal learning and building project.  
-More features coming soon!
+/src/ app/ sender/ page.js # Thought creation page share/ ShareClient.js # Client-side share logic page.js # Suspense wrapper receiver/ ReceiverClient.js # Client-side receiver logic page.js # Suspense wrapper
+
+/pages/ api/ sendThought.js # POST: Create thought getThought.js # GET: Fetch thought + update receiver analytics markShared.js (future) # POST: Track forwarded/shared thoughts
+
 
 ---
+
+## 🚀 Live Deployment
+
+Production URL:  
+👉 [https://imthinkingofyou.vercel.app](https://imthinkingofyou.vercel.app)
+
+---
+
+## 📈 Future Enhancements
+
+- Build `/api/markShared.js` to track forwarded thoughts
+- Light analytics dashboard for backend visualization
+- Optional personalization based on receiver interactions
+- Progressive Web App (PWA) version for offline kindness sending
+
+---
+
+## 🧠 Key Learning Areas
+
+- Fullstack flow from dynamic frontend to persistent backend
+- Real-world debugging: RLS issues, SSR vs CSR hydration errors
+- Domain management and production deployment scaling
+- Soft UX pacing: emotional timing between page states
+
+---
+
+## 📚 License
+
+Built for learning, emotional well-being experiments, and portfolio demonstration.  
+All content © 2025.
+
+---
+
+
