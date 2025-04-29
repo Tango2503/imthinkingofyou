@@ -1,10 +1,50 @@
 "use client";
 
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
 export default function Receiver() {
-  const thoughtMessage = "🌸 Someone wanted you to know: You are quietly loved today.";
-  const senderName = "— from Tina"; // Simulate optional sender name for now
+  const [thought, setThought] = useState(null);
+  const [error, setError] = useState(null);
+  const searchParams = useSearchParams();
+  const id = searchParams.get('id');
+
+  useEffect(() => {
+    const fetchThought = async () => {
+      if (!id) return;
+
+      try {
+        const response = await fetch(`/api/getThought?id=${id}`);
+        if (!response.ok) {
+          throw new Error('Thought not found.');
+        }
+        const data = await response.json();
+        setThought(data);
+      } catch (err) {
+        console.error(err);
+        setError('hmm, we couldn’t find that thought. maybe it floated away? 🌬️');
+      }
+    };
+
+    fetchThought();
+  }, [id]);
+
+  if (error) {
+    return (
+      <main className="flex flex-col items-center justify-center min-h-screen p-8 text-center">
+        <p className="text-lg opacity-80">{error}</p>
+      </main>
+    );
+  }
+
+  if (!thought) {
+    return (
+      <main className="flex flex-col items-center justify-center min-h-screen p-8 text-center">
+        <p className="text-lg opacity-60">gently retrieving your thought... 🌿</p>
+      </main>
+    );
+  }
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-8 text-center space-y-6">
@@ -17,11 +57,13 @@ export default function Receiver() {
       {/* Thought Box */}
       <div className="border p-6 rounded-lg bg-gray-100 w-full max-w-md space-y-4">
         <p className="text-lg leading-relaxed">
-          {thoughtMessage}
+          {thought.message}
         </p>
-        <p className="text-sm opacity-60 italic">
-          {senderName}
-        </p>
+        {thought.name && !thought.is_anonymous && (
+          <p className="text-sm opacity-60 italic">
+            — from {thought.name}
+          </p>
+        )}
       </div>
 
       {/* Soft Divider */}

@@ -2,7 +2,9 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+
 import Link from 'next/link';
+import { vibesToThoughts } from '../../../lib/storage/vibesToThoughts';
 
 export default function Sender() {
   const [vibe, setVibe] = useState('Soft');
@@ -11,19 +13,41 @@ export default function Sender() {
 
   const router = useRouter();
 
-  const vibeMessages = {
-    Soft: "🌸 someone wanted you to know. you're quietly loved today.",
-    Passionate: "🔥 someone wanted you to feel. you inspire something powerful.",
-    Reflective: "☁️ someone wanted you to ponder. you matter in more ways than you realise.",
-    Calm: "🌊 someone wanted you to breathe easy. you're doing just fine."
-  };
+  const vibeMessages = vibesToThoughts
 
-  const handleSendThought = () => {
+  const handleSendThought = async () => {
     setIsSending(true);
-    setTimeout(() => {
-      router.push('/share');
-    }, 1000); // 1 seconds delay
+    if (!vibe) {
+      alert("Please select a vibe first! 🌸");
+      return;
+    }
+  
+    try {
+      const response = await fetch('/api/sendThought', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ vibe, name }),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to send thought.');
+      }
+  
+      const { id } = await response.json();
+  
+      // Redirect to Share page with id
+      setTimeout(() => {
+        router.push(`/share?id=${id}`);
+      }, 1000); // 1 second
+    }  catch (error) {
+      console.error(error);
+      alert('Something went wrong. Please try again.');
+      setIsSending(False);
+    }
   };
+  
+
+  
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-8 text-center space-y-6">
@@ -62,10 +86,10 @@ export default function Sender() {
               value={vibe}
               onChange={(e) => setVibe(e.target.value)}
             >
-              <option value="soft">🌸 soft</option>
-              <option value="passionate">🔥 passionate</option>
-              <option value="reflective">☁️ reflective</option>
-              <option value="calm">🌊 calm</option>
+              <option value="Soft">🌸 soft</option>
+              <option value="Passionate">🔥 passionate</option>
+              <option value="Reflective">☁️ reflective</option>
+              <option value="Calm">🌊 calm</option>
             </select>
           </div>
 

@@ -1,38 +1,40 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 
 export default function SharePage() {
+  const searchParams = useSearchParams();
   const [isMobile, setIsMobile] = useState(false);
   const [copied, setCopied] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
   const [startFade, setStartFade] = useState(false);
-
+  const [shareUrl, setShareUrl] = useState('');
   const router = useRouter();
-  const shareUrl = 'https://imthinkingofyou.io/thought/abc123'; // Placeholder
+
+  const id = searchParams.get('id'); // <-- correct way to get ID in App Router!
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setIsMobile(
-        /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(
-          navigator.userAgent
-        )
-      );
+    if (id) {
+      setShareUrl(`https://imthinkingofyou.vercel.app/receiver?id=${id}`);
+      console.log('Setting shareUrl:', `https://imthinkingofyou.vercel.app/receiver?id=${id}`);
     }
-  }, []);
+  }, [id]);
+
 
   const handleCopyLink = () => {
+    if (!shareUrl) return;
     navigator.clipboard.writeText(shareUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
 
-    // Start fade after 5s
+    // Start fade after 3s
     setTimeout(() => {
       setStartFade(true);
     }, 3000);
 
-    // Redirect after 7s
+    // Redirect after 5s
     setTimeout(() => {
       setIsCompleted(true);
       router.push('/thank-you');
@@ -40,6 +42,7 @@ export default function SharePage() {
   };
 
   const handleShareLink = async () => {
+    if (!shareUrl) return;
     try {
       await navigator.share({
         title: 'someone is thinking of you 🌸',
@@ -88,7 +91,7 @@ export default function SharePage() {
           {/* Link Display */}
           <div className="border p-4 rounded-lg bg-gray-100 w-full max-w-md">
             <p className="text-sm break-all">
-              {shareUrl}
+              {shareUrl || "loading..."}
             </p>
           </div>
 
@@ -113,9 +116,9 @@ export default function SharePage() {
           <p className="text-sm opacity-70 max-w-md">
             send this gently — a message, a text, or an email — however feels right
             <br />
-                no need for a reply
+            no need for a reply
             <br />
-                your care has already been felt 🌸
+            your care has already been felt 🌸
           </p>
 
         </>
