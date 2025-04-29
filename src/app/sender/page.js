@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import Link from 'next/link';
-import { vibesToThoughts } from '../../../../lib/storage/vibesToThoughts';
+import { vibesToThoughts } from '../../../lib/storage/vibesToThoughts';
 
 export default function Sender() {
   const [vibe, setVibe] = useState('Soft');
