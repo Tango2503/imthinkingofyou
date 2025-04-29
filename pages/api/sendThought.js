@@ -2,7 +2,7 @@
 
 import { nanoid } from 'nanoid';
 import { vibesToThoughts } from '../../lib/storage/vibesToThoughts';
-import { supabase } from '../../lib/supabaseClient';
+import { supabase } from '../../lib/storage/supabaseClient';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
@@ -26,7 +26,7 @@ export default async function handler(req, res) {
           name: name || null,
           is_anonymous: !name,
           has_shared: false,
-          createdAt: new Date().toISOString(),
+          created_at: new Date().toISOString(),
           first_received_at: null,
           visit_count: 0,
           forwarded: false,

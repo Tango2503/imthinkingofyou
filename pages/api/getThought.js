@@ -1,6 +1,6 @@
 // pages/api/getThought.js
 
-import { supabase } from '../../lib/supabaseClient'; // <-- Add this import
+import { supabase } from '../../lib/storage/supabaseClient'; // <-- Add this import
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
@@ -45,7 +45,7 @@ export default async function handler(req, res) {
       name: thought.name,
       is_anonymous: thought.is_anonymous,
       vibe: thought.vibe,
-      createdAt: thought.createdAt,
+      created_at: thought.created_at,
       first_received_at: thought.first_received_at || updates.first_received_at,
       visit_count: (thought.visit_count || 0) + 1,
       forwarded: thought.forwarded,
