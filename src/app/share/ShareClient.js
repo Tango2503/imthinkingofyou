@@ -22,6 +22,13 @@ export default function SharePage() {
     }
   }, [id]);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      const isMobileDevice = /android|iphone|ipad|ipod|opera mini|iemobile|mobile/i.test(userAgent);
+      setIsMobile(isMobileDevice && typeof navigator.share === 'function');
+    }
+  }, []);
 
   const handleCopyLink = () => {
     if (!shareUrl) return;
