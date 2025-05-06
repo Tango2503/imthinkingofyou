@@ -91,6 +91,7 @@ export default function Sender() {
               <option value="Reflective">☁️ reflective</option>
               <option value="Calm">🌊 calm</option>
               <option value="Reassurance">🫂 reassurance</option>
+              <option value="Gratitude">🙏 gratitude</option>
             </select>
           </div>
 
